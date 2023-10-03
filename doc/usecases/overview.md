@@ -102,6 +102,7 @@ user-->mdc_im_case_state_as_color
 
 ## List Actions
 ```plantuml
+@startuml
 left to right direction
 actor user
 rectangle "MDC-IM-LIST-VIEW"{
@@ -118,11 +119,13 @@ rectangle "MDC-IM-LIST-VIEW"{
     user --> mdc_im_paginate
     user --> mdc_im_pagination_size
 }
+@enduml
 ```
 
 ## Case details
 ### information
 ```plantuml
+@startuml
 left to right direction
 actor user
 rectangle "MDC-IM-DETAIL-VIEW"{
@@ -157,11 +160,13 @@ user-->mdc_im_maintenance_entries
 user-->mdc_im_history
 user-->mdc_im_technical_data
 
+@enduml
 ```
 
 ### additional information - URLS
 
 ```plantuml
+@startuml
 left to right direction
 actor user
 
@@ -209,11 +214,13 @@ mdc_im_edit_url <-- ada_create_mdc_url
 mdc_im_add_url <-- ada_create_c4c_equip_url
 mdc_im_add_url <-- ada_create_c4c_orga_url
 
+@enduml
 ```
 
 ### additional information - notes
 
 ```plantuml
+@startuml
 left to right direction
 actor user
 
@@ -232,11 +239,13 @@ user --> mdc_im_show_notes
 user --> mdc_im_edit_notes
 user --> mdc_im_delete_notes
 
+@enduml
 ```
 
 ### additional information - attachments
 
 ```plantuml
+@startuml
 left to right direction
 actor user
 
@@ -259,10 +268,12 @@ user --> mdc_im_delete_attachment
 
 
 
+@enduml
 ```
 
 ### marking & assignments
 ```plantuml
+@startuml
 left to right direction
 actor user
 rectangle "MDC-IM-DETAIL-VIEW"{
@@ -287,10 +298,12 @@ rectangle "MDC-IM-DETAIL-VIEW"{
     user-->mdc_im_add_new_tag
     user-->mdc_im_one_time_occ
 }
+@enduml
 ```
 
 ### mute and resubmission
 ```plantuml
+@startuml
 left to right direction
 actor user
 rectangle "MDC-IM-DETAIL-VIEW"{
@@ -305,10 +318,12 @@ user-->mdc_im_mute
 user-->mdc_im_unmute
 user-->mdc_im_resubmission
 
+@enduml
 ```
 
 ### MDC & C4C Interaction
 ```plantuml
+@startuml
 left to right direction
 actor user
 
@@ -316,10 +331,12 @@ rectangle "MDC-IM-DETAIL-VIEW"{
  usecase "redirect to MDC [automatic preconfigured]" as mdc_im_redirect_mdc
  usecase "update redirection URL"
 }
+@enduml
 ```
 
 ## Condition analysis
 ```plantuml
+@startuml
 left to right direction
 actor user
 rectangle "MDC-IM-DETAIL-VIEW"{
@@ -335,4 +352,5 @@ rectangle "GUARD" {
 user-->mdc_im_download_analysis
 user-->mdc_im_create_analysis
 mdc_im_create_analysis-->gu_download_graph
+@enduml
 ```
