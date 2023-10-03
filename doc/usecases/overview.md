@@ -337,6 +337,7 @@ rectangle "MDC-IM-DETAIL-VIEW"{
 ## Condition analysis
 ```plantuml
 @startuml
+!theme lightgray
 left to right direction
 actor user
 rectangle "MDC-IM-DETAIL-VIEW"{
