@@ -174,9 +174,11 @@ rectangle "MDC-IM-DETAIL-VIEW"{
     
     rectangle "URLs" {
         usecase "add url to case" as mdc_im_add_url
+        usecase "add C4C ticket url" as mdc_im_add_c4c_url
         usecase "show urls" as mdc_im_show_urls
         usecase "edit url" as mdc_im_edit_url
         usecase "delete url" as mdc_im_delete_url
+        mdc_im_add_url <..  mdc_im_add_c4c_url: <<extends>>
     }
 }
 
@@ -188,31 +190,17 @@ rectangle "Notification adapter" as adapter{
         set mdc link to the
         latest date?
     end note
-    usecase "create C4C Equipment URL from event data" as ada_create_c4c_equip_url
-    usecase "create C4C Organization URL from event data" as ada_create_c4c_orga_url
+    usecase "create Admin Panel URL from event data" as ada_create_admin_panel_url
 }
-
-rectangle "C4C" as c4c{
-    usecase "lookup equipment" as c4c_lookup_equip
-    usecase "lookup organization" as c4c_lookup_orga
-}
-note right of c4c
-    possible apis unclear
-end note
-
-
 
 user --> mdc_im_add_url
 user --> mdc_im_show_urls
 user --> mdc_im_edit_url
 user --> mdc_im_delete_url
 
-c4c_lookup_equip <-- ada_create_c4c_equip_url
-c4c_lookup_orga <-- ada_create_c4c_orga_url
-mdc_im_add_url <-- ada_create_mdc_url
-mdc_im_edit_url <-- ada_create_mdc_url
-mdc_im_add_url <-- ada_create_c4c_equip_url
-mdc_im_add_url <-- ada_create_c4c_orga_url
+mdc_im_add_url <--- ada_create_admin_panel_url
+mdc_im_add_url <--- ada_create_mdc_url
+mdc_im_edit_url <--- ada_create_mdc_url
 
 @enduml
 ```
@@ -318,19 +306,6 @@ user-->mdc_im_mute
 user-->mdc_im_unmute
 user-->mdc_im_resubmission
 
-@enduml
-```
-
-### MDC & C4C Interaction
-```plantuml
-@startuml
-left to right direction
-actor user
-
-rectangle "MDC-IM-DETAIL-VIEW"{
- usecase "redirect to MDC [automatic preconfigured]" as mdc_im_redirect_mdc
- usecase "update redirection URL"
-}
 @enduml
 ```
 
